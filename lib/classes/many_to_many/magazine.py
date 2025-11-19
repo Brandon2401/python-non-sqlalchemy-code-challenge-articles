@@ -31,10 +31,12 @@ class Magazine:
         return list({article.author for article in self.articles()})
 
     def article_titles(self):
-        return [article.title for article in self.articles()]
+        titles=[article.title for article in self.articles()]
+        return titles if titles else None
 
     def contributing_authors(self):
-        return [
+        authors=[
             author for author in self.contributors()
             if len([a for a in self.articles() if a.author is author]) > 2
         ]
+        return authors if authors else None 

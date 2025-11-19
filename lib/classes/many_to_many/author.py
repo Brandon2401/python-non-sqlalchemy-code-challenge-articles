@@ -24,4 +24,5 @@ class Author:
         return Article(self, magazine, title)
 
     def topic_areas(self):
-        return list({article.magazine.category for article in self.articles()})
+        areas={article.magazine.category for article in self.articles()}
+        return list(areas) if areas else None
